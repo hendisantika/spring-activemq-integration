@@ -11,8 +11,9 @@
     <groupId>com.hendisantika</groupId>
     <artifactId>publisher</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>publisher</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Spring JMS Publisher</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -23,6 +24,24 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-oxm -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+            <version>3.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hendisantika</groupId>
+            <artifactId>person-obj</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
