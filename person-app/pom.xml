@@ -13,8 +13,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.conpiler.source>1.8</maven.conpiler.source>
-        <maven.conpiler.target>1.8</maven.conpiler.target>
+        <maven.conpiler.source>21</maven.conpiler.source>
+        <maven.conpiler.target>21</maven.conpiler.target>
     </properties>
 
     <build>
