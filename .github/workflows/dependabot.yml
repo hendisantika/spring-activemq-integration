@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: maven
+    directory: "/publisher"
+    schedule:
+      interval: daily
+      time: '21:00'
+      timezone: Asia/Jakarta
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: maven
+    directory: "/consumer"
+    schedule:
+      interval: daily
+      time: '21:00'
+      timezone: Asia/Jakarta
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: maven
+    directory: "/person-app"
+    schedule:
+      interval: daily
+      time: '21:00'
+      timezone: Asia/Jakarta
+    open-pull-requests-limit: 10
