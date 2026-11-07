@@ -1,25 +1,63 @@
+# Dependabot configuration
+# Docs: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
 version: 2
 updates:
+  # Maven dependencies for every module
   - package-ecosystem: maven
-    directory: "/publisher"
+    directories:
+      - "/person-app"
+      - "/publisher"
+      - "/consumer"
     schedule:
-      interval: daily
-      time: '05:00'
+      interval: weekly
+      day: monday
+      time: "05:00"
       timezone: Asia/Jakarta
     open-pull-requests-limit: 10
+    labels:
+      - dependencies
+      - maven
+    assignees:
+      - hendisantika
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps-dev)"
+      include: scope
+    groups:
+      # Spring Boot parent & Spring ecosystem minor/patch bumps in one PR
+      spring:
+        patterns:
+          - "org.springframework*"
+        update-types:
+          - minor
+          - patch
+      # Every other minor/patch bump in one PR
+      maven-dependencies:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "org.springframework*"
+        update-types:
+          - minor
+          - patch
 
-  - package-ecosystem: maven
-    directory: "/consumer"
+  # GitHub Actions used by the workflows
+  - package-ecosystem: github-actions
+    directory: "/"
     schedule:
-      interval: daily
-      time: '05:00'
+      interval: weekly
+      day: monday
+      time: "05:00"
       timezone: Asia/Jakarta
-    open-pull-requests-limit: 10
-
-  - package-ecosystem: maven
-    directory: "/person-app"
-    schedule:
-      interval: daily
-      time: '05:00'
-      timezone: Asia/Jakarta
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - github-actions
+    assignees:
+      - hendisantika
+    commit-message:
+      prefix: "ci(deps)"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
