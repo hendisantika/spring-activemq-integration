@@ -1,5 +1,6 @@
 package com.hendisantika.consumer;
 
+import com.hendisantika.person.schema.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -16,8 +17,7 @@ public class ConsumerApplication {
 
     @JmsListener(destination = "${inbound.endpoint}")
     public void consumedMessageHandler(Person person) {
-        log.info("Id :" + person.getId() + " Name: " + person.getName());
-
+        log.info("Id: {} Name: {}", person.getId(), person.getName());
     }
 
 }

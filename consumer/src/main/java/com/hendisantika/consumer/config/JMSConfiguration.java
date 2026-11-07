@@ -8,7 +8,7 @@ import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.support.converter.MarshallingMessageConverter;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
-import javax.xml.bind.Marshaller;
+import jakarta.xml.bind.Marshaller;
 import java.util.HashMap;
 import java.util.Map;
 

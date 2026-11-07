@@ -5,30 +5,44 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.hendisantika</groupId>
-    <artifactId>person-app</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>person-obj</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
     <name>person-obj</name>
-    <url>http://maven.apache.org</url>
+    <description>Shared Person XML schema &amp; generated JAXB classes</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.conpiler.source>21</maven.conpiler.source>
-        <maven.conpiler.target>21</maven.conpiler.target>
+        <maven.compiler.release>25</maven.compiler.release>
+        <jakarta.xml.bind-api.version>4.0.5</jakarta.xml.bind-api.version>
+        <jaxb-maven-plugin.version>4.0.16</jaxb-maven-plugin.version>
+        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>${jakarta.xml.bind-api.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.jvnet.jaxb2.maven2</groupId>
-                <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>0.15.3</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jvnet.jaxb</groupId>
+                <artifactId>jaxb-maven-plugin</artifactId>
+                <version>${jaxb-maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
                             <goal>generate</goal>
                         </goals>
-
                     </execution>
                 </executions>
                 <configuration>
@@ -36,11 +50,10 @@
                     <schemaIncludes>
                         <include>*.xsd</include>
                     </schemaIncludes>
+                    <generatePackage>com.hendisantika.person.schema</generatePackage>
                 </configuration>
-
             </plugin>
         </plugins>
     </build>
-
 
 </project>
